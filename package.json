@@ -1,0 +1,43 @@
+{
+  "name": "expense-tracker",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "test": "vitest run",
+    "test:node": "node --import ./scripts/register-hooks.mjs --test src/lib/budget.test.ts src/lib/categoryForm.test.ts src/lib/draftStorage.test.ts src/lib/exportData.test.ts src/lib/finance.test.ts src/lib/transactionForm.test.ts src/lib/transactionQuery.test.ts src/lib/reporting.test.ts src/lib/transactions.test.ts src/lib/db/rows.test.ts src/lib/db/workspace.test.ts",
+    "test:rls": "node supabase/tests/rls.test.mjs",
+    "test:cloud": "node supabase/tests/cloud-sync.test.mjs",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "recharts": "^3.10.1"
+  },
+  "overrides": {
+    "@rolldown/binding-wasm32-wasi": {
+      "@emnapi/core": "1.11.3",
+      "@emnapi/runtime": "1.11.3",
+      "@emnapi/wasi-threads": "1.2.3"
+    }
+  },
+  "devDependencies": {
+    "@rolldown/binding-wasm32-wasi": "^1.2.15",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "oxlint": "^1.88.0",
+    "pg": "^8.23.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.5"
+  }
+}
